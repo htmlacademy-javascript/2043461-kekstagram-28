@@ -4,10 +4,10 @@ const checkStringLength = function (checkString, i) {
   } else {
     return false;
   }
-}
+};
 
 
-function checkWord(word) {
+const checkWord = function (word) {
   let splitString = word.split("");
   let reverseArray = splitString.reverse();
   let joinArray = reverseArray.join("");

@@ -1,4 +1,4 @@
-let checkStringLength = function (checkString, i) {
+const checkStringLength = function (checkString, i) {
   if (checkString.length <= i) {
     return true;
   } else {
@@ -11,7 +11,7 @@ function checkWord(word) {
   let splitString = word.split("");
   let reverseArray = splitString.reverse();
   let joinArray = reverseArray.join("");
-  if (word.toLowerCase() == joinArray.toLowerCase()) {
+  if (word.toLowerCase == joinArray.toLowerCase) {
     return true;
   } else {
     return false;

@@ -1,13 +1,13 @@
 const checkStringLength = (checkString, maxLength) => {
   return checkString.length <= maxLength;
-}
+};
 checkStringLength('проверяемая строка', 20);
 checkStringLength('проверяемая строка', 18);
 checkStringLength('проверяемая строка', 10);
 
 function isPalindrom(word) {
-  const reversedString = reverseArray.split('').reverse().join('');
-  return word.toLowerCase === reversedString.toLowerCase;
+  const reversedString = word.split('').reverse().join('');
+  return word.toLowerCase() === reversedString.toLowerCase();
 }
 isPalindrom('топот');
 isPalindrom('ДовОд');
@@ -32,9 +32,11 @@ extractNumber('а я томат');
 
 const padStart = (string, minLength, pad) => {
   const actualPad = minLength - string.length;
+
   if (actualPad <= 0) {
     return string;
   }
+
   return pad.slice(0,actualPad % pad.length) + pad.repeat(actualPad / pad.length) + string;
 };
 padStart('1', 2, '0');

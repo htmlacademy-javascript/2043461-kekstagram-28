@@ -4,10 +4,10 @@ const checkStringLength = function (checkString, i) {
   } else {
     return false;
   }
-}
-console.log(checkStringLength('проверяемая строка', 20));
-console.log(checkStringLength('проверяемая строка', 18));
-console.log(checkStringLength('проверяемая строка', 10));
+};
+checkStringLength('проверяемая строка', 20);
+checkStringLength('проверяемая строка', 18);
+checkStringLength('проверяемая строка', 10);
 
 function checkWord(word) {
   const splitString = word.split('');
@@ -19,9 +19,9 @@ function checkWord(word) {
     return false;
   }
 }
-console.log(checkWord('топот'));
-console.log(checkWord('ДовОд'));
-console.log(checkWord('Кекс'));
+checkWord('топот');
+checkWord('ДовОд');
+checkWord('Кекс');
 
 const extractNumber = (string) => {
   let result = '';
@@ -32,11 +32,11 @@ const extractNumber = (string) => {
   }
   return parseInt(result, 10);
 };
-console.log(extractNumber('2023 год'));
-console.log(extractNumber('ECMAScript 2022'));
-console.log(extractNumber('1 кефир, 0.5 батона'));
-console.log(extractNumber('агент 007'));
-console.log(extractNumber('а я томат'));
+extractNumber('2023 год');
+extractNumber('ECMAScript 2022');
+extractNumber('1 кефир, 0.5 батона');
+extractNumber('агент 007');
+extractNumber('а я томат');
 
 const padStart = (string, minLength, pad) => {
   const actualPad = minLength - string.length;
@@ -45,8 +45,8 @@ const padStart = (string, minLength, pad) => {
   }
   return pad.slice(0,actualPad % pad.length) + pad.repeat(actualPad / pad.length) + string;
 };
-console.log(padStart('1', 2, '0'));
-console.log(padStart('1', 4, '0'));
-console.log(padStart('q', 4, 'werty'));
-console.log(padStart('q', 4, 'we'));
-console.log(padStart('qwerty', 4, '0'));
+padStart('1', 2, '0');
+padStart('1', 4, '0');
+padStart('q', 4, 'werty');
+padStart('q', 4, 'we');
+padStart('qwerty', 4, '0');

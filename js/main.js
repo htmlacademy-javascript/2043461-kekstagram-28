@@ -43,7 +43,7 @@ const generateCommentId = createIdGenerator();
 
 const createMessage = () =>
   Array.from({length: getRandomInteger(1,2) }, () =>
-  getRandomArrayElement(COMMENT_LINES)
+    getRandomArrayElement(COMMENT_LINES)
   ).join(' ');
 
 const createComment = () => ({
@@ -58,12 +58,15 @@ const createPicture = (index) => ({
   url: `photos/${index}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_NUMBER, LIKE_MAX_NUMBER),
-  comments: getRandomArrayElement(COMMENT_LINES),
+  comments: Array.from(
+    {length: getRandomInteger(0, COMMENT_LINES) },
+    createComment
+  ),
 });
 
 const getPictures = () =>
   Array.from({length: PICTURE_NUMBER}, (_, pictureIndex) =>
-  createPicture(pictureIndex + 1)
+    createPicture(pictureIndex + 1)
   );
 
-console.log(getPictures());
+getPictures();

@@ -75,12 +75,12 @@ const createPicture = (index) => ({
 
 const getPictures = () => {
   const res = [];
-for (let i = 0; i < PICTURE_NUMBER; i++) {
-  const photo = createPicture(i + 1);
-  res.push(photo);
-}
+  for (let i = 0; i < PICTURE_NUMBER; i++) {
+    const photo = createPicture(i + 1);
+    res.push(photo);
+  }
 
-return res;
+  return res;
 };
 
 getPictures();

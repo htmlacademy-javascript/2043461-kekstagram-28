@@ -10,7 +10,7 @@ const DESCRIPTIONS = [
 ];
 const LIKE_MIN_NUMBER = 15;
 const LIKE_MAX_NUMBER = 200;
-const COMMENT_LINES = [
+const COMMENTS = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -43,7 +43,7 @@ const generateCommentId = createIdGenerator();
 
 const createMessage = () =>
   Array.from({length: getRandomInteger(1,2) }, () =>
-    getRandomArrayElement(COMMENT_LINES)
+    getRandomArrayElement(COMMENTS)
   ).join(' ');
 
 const createComment = () => ({
@@ -53,20 +53,34 @@ const createComment = () => ({
   name: getRandomArrayElement(NAMES),
 });
 
+const createComments = () => {
+  const res = [];
+  const commentNumber = getRandomInteger(0, 3);
+
+  for (let i = 0; i < commentNumber; i++) {
+    const photo = createComment(i + 1);
+    res.push(photo);
+  }
+
+  return res;
+};
+
 const createPicture = (index) => ({
   id: index,
   url: `photos/${index}.jpg`,
   description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(LIKE_MIN_NUMBER, LIKE_MAX_NUMBER),
-  comments: Array.from(
-    {length: getRandomInteger(0, COMMENT_LINES) },
-    createComment
-  ),
+  comments: createComments(),
 });
 
-const getPictures = () =>
-  Array.from({length: PICTURE_NUMBER}, (_, pictureIndex) =>
-    createPicture(pictureIndex + 1)
-  );
+const getPictures = () => {
+  const res = [];
+for (let i = 0; i < PICTURE_NUMBER; i++) {
+  const photo = createPicture(i + 1);
+  res.push(photo);
+}
+
+return res;
+};
 
 getPictures();
